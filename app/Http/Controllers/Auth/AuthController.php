@@ -7,6 +7,7 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Carbon\Carbon;
 
 class AuthController extends Controller
 {
@@ -49,11 +50,24 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
+            'name' => 'required|max:255|regex:/^[a-z]+$/i',
+            'apellido' => 'required|max:255|regex:/^[a-z]+$/i',
+            'fecha_nac' => 'required',
+            'telefono' => 'required|max:100',
             'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
+            'password' => 'required|min:8|max:15|confirmed',
+        ],
+        [
+
+            'name.required' => 'El campo nombre es requerido',
+            'apellido.required' => 'El campo nombre es requerido',
+            'name.regex' => 'Sólo se aceptan letras',
+            'apellido.regex' => 'Sólo se aceptan letras',
+            'password.min' => 'Minimo 8 caracteres',
+            'password.max' => 'Máximo 15 carateres',
         ]);
     }
+
 
     /**
      * Create a new user instance after a valid registration.
@@ -63,10 +77,15 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+        $dateF = strtotime($data['fecha_nac']);
+        $dateF = date('Y-m-d',$dateF);
         return User::create([
             'name' => $data['name'],
+            'apellido' => $data['apellido'],
+            'fecha_nac' => $dateF,
+            'telefono' => $data['telefono'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'password   ' => bcrypt($data['password']),
         ]);
     }
 }

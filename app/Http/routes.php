@@ -18,3 +18,9 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+Route::resource('producto', 'ProductoController');
+
+Route::get('form_enviar_correo', 'CorreoController@crear');
+Route::post('enviar_correo', 'CorreoController@enviar');
+Route::post('cargar_archivo_correo', 'CorreoController@store');

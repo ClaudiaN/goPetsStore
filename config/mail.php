@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => 'tienda@gopetsstore.com', 'name' => 'GoPetsStore'],
 
     /*
     |--------------------------------------------------------------------------
