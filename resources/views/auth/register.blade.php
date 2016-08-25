@@ -1,10 +1,7 @@
-   @extends('layouts.app')
-    <!-- Datepicker Files -->
-    <link rel="stylesheet" href="{{asset('datePicker/css/bootstrap-datepicker3.css')}}">
-    <link rel="stylesheet" href="{{asset('datePicker/css/bootstrap-datepicker3.standalone.css')}}">
-   
-
-
+@extends('layouts.app')
+<!-- Datepicker Files -->
+<link rel="stylesheet" href="{{asset('datePicker/css/bootstrap-datepicker3.css')}}">
+<link rel="stylesheet" href="{{asset('datePicker/css/bootstrap-datepicker3.standalone.css')}}">
 @section('content')
 
 <div class="container">

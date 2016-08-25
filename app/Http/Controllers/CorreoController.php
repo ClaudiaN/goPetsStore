@@ -41,12 +41,7 @@ class CorreoController extends Controller
     
         $pathToFile="";
         $containfile=false; 
-        if($request->hasFile('file') ){
-           $containfile=true; 
-           $file = $request->file('file');
-           $nombre=$file->getClientOriginalName();
-           $pathToFile= storage_path('app') ."/". $nombre;
-        }
+
 
         
         $destinatario=$request->input("destinatario");
@@ -61,25 +56,19 @@ class CorreoController extends Controller
         $r= Mail::send('correo.plantillaContacto', $data, function ($message) use ($asunto,$to,  $containfile,$pathToFile) {
             $message->from('atencionusuariogopets@gmail.com', 'Go! Pets Store');
             $message->to($to)->subject($asunto);
-           if($containfile){
-            $message->attach($pathToFile);
-            }
-
-        });
+            });
             
         if($r){   
-                 if($containfile){ Storage::disk('local')->delete($nombre); }        
-                return view("mensajes.msj_correcto")->with("msj","Correo Enviado correctamente");   
-        }
+     
+             return view("mensajes.msj_correcto")->with("msj","Correo Enviado correctamente");   
+           }
         else
-        {            
+          {            
              return view("mensajes.msj_rechazado")->with("msj","hubo un error vuelva a intentarlo");  
-        }
+          }
 
    
     }
-
-
 
 
 
