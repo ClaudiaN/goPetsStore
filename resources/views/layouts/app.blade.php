@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
-    <link rel="icon" type="image/png" href="images/logo.jpg"/>
+    <title>GoPetsStore</title>
+    <link rel="icon" type="image/png" href="{{asset('images/logo.jpg')}}"/>
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
@@ -14,8 +14,8 @@
     <!-- Styles -->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">     
-    <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-    <link rel="stylesheet" href="css/estilosBanner.css">
+    <link rel="stylesheet" href="{{asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/estilosBanner.css')}}">
 
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
@@ -173,73 +173,75 @@
             bottom: 60% !important;
             right: 0px;
         }  
- }    
+ }  
+
     </style>
 </head>
 <body id="app-layout">
 <header>
-        <div class="logo"><a href="https://gopetsstore.com"><img src="images/Logo.jpg" alt="Go! Pets Store"></a></div>
+        <div class="logo"><a href="https://gopetsstore.com"><img src="{{asset('images/Logo.jpg')}}" alt="Go! Pets Store"></a></div>
         <div>
-            <div class="iniciarsesion"><a href="#"><img src="images/IniciarSesion.png" alt="Iniciar Sesión"></a></div>
-            <p><a href="#" title="Iniciar Sesión">Iniciar Sesión</a></p>
+            <div class="iniciarsesion"><a href="#"><img src="{{asset('images/IniciarSesionG.png')}}" alt="Iniciar Sesión"></a></div>
+            <p><a href="{{ url('/login') }}" title="Iniciar Sesión">Iniciar Sesión</a></p>
             <div class="lineaVertPeq"></div>
-            <div class="carrito"><a href="#"><img src="images/carrito.png" alt="Carrito de Compras"></a></div>
+            <div class="carrito"><a href="#"><img src="{{asset('images/carrito.png')}}" alt="Carrito de Compras"></a></div>
         </div>
+        <div class="phone2"><img src="{{asset('images/telephone.png')}}" alt="Teléfono"><p>+1-954-952-4891</p></div>
         <section class="barraMenuSaludo">
-            <ul class="menuPrincipal">
-                <li><a href="#" title="Inicio">Inicio</a></li>
-                <li><a href="#" title="Inicio">Inicio</a></li>
-                <li><a href="#" title="Inicio">Inicio</a></li>
-                <li><a href="#" title="Productos">Productos</a>
-                    <ul id="submenu">
-                        <li><a href="#" title="Categoria 1"><div>Categoria 1</div></a></li>
-                        <li><a href="#" title="Categoria 2"><div>Categoria 2</div></a></li>
-                        <li><a href="#" title="Categoria 3"><div>Categoria 3</div></a></li>
-                        <li><a href="#" title="Categoria 4"><div>Categoria 4</div></a></li>
-                        <li><a href="#" title="Categoria 5"><div>Categoria 5</div></a></li>         
-                    </ul>
-                </li>
-                <li><a href="#" title="Acerca de Nosotros">Nosotros</a>
-                    <ul id="submenu">
-                        <li><a href="#" title="Categoria 1"><div>Categoria 1</div></a></li>
-                        <li><a href="#" title="Categoria 2"><div>Categoria 2</div></a></li>
-                        <li><a href="#" title="Categoria 3"><div>Categoria 3</div></a></li>
-                        <li><a href="#" title="Categoria 4"><div>Categoria 4</div></a></li>
-                        <li><a href="#" title="Categoria 5"><div>Categoria 5</div></a></li>         
-                    </ul>
+            <nav>
+                <ul class="menuPrincipal">
+                    <li><a href="#" title="Inicio">Inicio</a></li>
+                    <li><a href="#" title="Inicio">Inicio</a></li>
+                    <li><a href="#" title="Inicio">Inicio</a></li>
+                    <li><a href="#" title="Productos">Productos</a>
+                        <ul>
+                            <li><a href="#" title="Categoria 1"><div>Categoria 1</div></a></li>
+                            <li><a href="#" title="Categoria 2"><div>Categoria 2</div></a></li>
+                            <li><a href="#" title="Categoria 3"><div>Categoria 3</div></a></li>
+                            <li><a href="#" title="Categoria 4"><div>Categoria 4</div></a></li>
+                            <li><a href="#" title="Categoria 5"><div>Categoria 5</div></a></li>         
+                        </ul>
                     </li>
-                <li><a href="#" title="Contacto">Contacto</a></li>
-            </ul>
-            <div class="phone"><img src="images/telephone.png" alt="Teléfono"><p>+1-954-952-4891</p></div>
+                    <li><a href="#" title="Acerca de Nosotros">Nosotros</a>
+                        <ul>
+                            <li><a href="#" title="Categoria 1"><div>Categoria 1</div></a></li>
+                            <li><a href="#" title="Categoria 2"><div>Categoria 2</div></a></li>
+                            <li><a href="#" title="Categoria 3"><div>Categoria 3</div></a></li>
+                            <li><a href="#" title="Categoria 4"><div>Categoria 4</div></a></li>
+                            <li><a href="#" title="Categoria 5"><div>Categoria 5</div></a></li>         
+                        </ul>
+                        </li>
+                    <li><a href="#" title="Contacto">Contacto</a></li>
+                </ul>
+            </nav>  
         </section>  
     </header>   
-
    
     @yield('content')
     
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
-    <script src="js/proyecto.js"></script>
+    <script src="{{asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
+    <script src="{{asset('js/proyecto.js')}}"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 
     @yield('scripts') 
-<div>
-    <a href="#" class="enlace_zopim">
-        <div class="boton_face" id="boton_face"><img class="imagenRedes" src="images/facebook.png"></div>
-    </a>
-    <a href="#" class="enlace_zopim">
-        <div class="boton_inst" id="boton_inst"><img class="imagenRedes" src="images/instagram.png"></div>
-    </a>
-    <a href="#" class="enlace_zopim">
-        <div class="boton_twit" id="boton_twit"><img class="imagenRedes" src="images/twitter.png"></div>
-    </a>
-    <a href="#" class="enlace_zopim">
-        <div class="boton_mail" id="boton_mail"><img class="imagenRedes" src="images/mail.png"></div>
-    </a>
+    <div>
+        <a href="#" class="enlace_zopim">
+            <div class="boton_face" id="boton_face"><img class="imagenRedes" src="{{asset('images/facebook.png')}}"></div>
+        </a>
+        <a href="#" class="enlace_zopim">
+            <div class="boton_inst" id="boton_inst"><img class="imagenRedes" src="{{asset('images/instagram.png')}}"></div>
+        </a>
+        <a href="#" class="enlace_zopim">
+            <div class="boton_twit" id="boton_twit"><img class="imagenRedes" src="{{asset('images/twitter.png')}}"></div>
+        </a>
+        <a href="#" class="enlace_zopim">
+            <div class="boton_mail" id="boton_mail"><img class="imagenRedes" src="{{asset('images/mail.png')}}"></div>
+        </a>
     </div>
- <div class="wrapper1 vertical-centered-text">
+    <div class="wrapper1 vertical-centered-text">
     <section id="main-section" class="section vertical-centered-text">
     <div class="menuFoot">
         <h1 class="h1">Nosotros</h1>

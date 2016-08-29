@@ -1,5 +1,13 @@
+* {
+	margin:0px;
+	padding:0px;
+}
+
+ul, ol {
+	list-style:none;
+}
 header{
-	margin:0 auto;
+	margin:auto;
 	text-align: center;	
 	font-size: 20px;
 	font-family: 'Aero Matics';
@@ -14,9 +22,9 @@ header div{
 header div p a{
 	display: inline-block;
 	vertical-align: top;	
-	margin-left: 1px;
+	margin-left: 0.5em;
 	margin-right: 10px;
-	margin-top:1em;
+	margin-top:2em;
 	color: #B9F700;
 	text-decoration:none;
 	font-size: 18px;
@@ -85,63 +93,78 @@ section h1{
 	list-style: none;
 }
 
-.menuPrincipal{	
-	margin:0px;
-	margin-right: 0em;
+.menuPrincipal {
+	width:750px; /*Le establecemos un ancho*/
+	margin:0 auto; /*Centramos automaticamente*/
 	font font-size: 18px;
 	border-bottom: 0px;
 	list-style: none;
 	position: absolute;
-	left: 7.3em;
+	left: 9.2em;
 }
 
-.menuPrincipal > li{
-	float: left;
+.menuPrincipal > li {
+	float:left;
 }
-
-.menuPrincipal li a{
-	display: block;
+.menuPrincipal li a {
 	background: #F5FEAB;
 	min-width: 80px;
-	padding: 18px 20px;
 	color: #533359;
+	text-decoration:none;
+	padding: 18px 20px;
+	display:block;
 }
 
-.menuPrincipal li:hover > ul{
-	display: block;
+.menuPrincipal li a:hover {
+	background-color:#B9F700;
 }
 
-
-.menuPrincipal li a:hover{
+.menuPrincipal li a:focus{
 	background: #B9F700;
 }
-.menuPrincipal li ul{
-	display: none;
-	position: absolute;
-	min-width: 100px;
+
+.menuPrincipal li ul {
+	display:none;
+	position:absolute;
+	min-width:150px;
 }
 
-#submenu li a{
+.menuPrincipal li:hover > ul {
+	display:block;
+}
+
+.menuPrincipal li ul li {
+	position:relative;
+
+}
+
+.menuPrincipal li ul li a{
 	display: block;
 	background: #533359;
 	color: #B9F700;
 	min-width: 80px;
 	padding: 18px 20px;
-	border:1px solid;
 	border-bottom: 0px;
 	border-top: 0px;
 	font-family: 'Myriad Pro', normal;
 	font-size: 18px;
 }
 
-#submenu li a:hover{
+.menuPrincipal li ul li a:hover{
 	font-family: 'Myriad Pro', bold;
 	color: #533359;
 	background: #B9F700;
 }
+
+
+.menuPrincipal li ul li ul {
+	right:-140px;
+	top:0px;
+}
 .phone{
 	position: absolute;
-	left: 46em;
+	left: 46.5em;
+	top: 9.5em;
 }
 .phone2{
 	position: absolute;
@@ -190,9 +213,3 @@ section h1{
 	margin-left: 0.3em;
 	margin-right: 0em;
 }
-
-
-
-
-
-

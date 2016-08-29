@@ -45,13 +45,18 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('app'),
+            'root' => storage_path('app').'/storage',
         ],
 
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
             'visibility' => 'public',
+        ],
+
+        'fotosProductos' => [
+            'driver' => 'local',
+            'root' => storage_path('fotosProductos'),
         ],
 
         's3' => [

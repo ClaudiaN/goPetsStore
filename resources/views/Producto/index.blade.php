@@ -18,24 +18,28 @@
         </div>
     @endif
 
-    <table class="table table-bordered">
+    <table class="table table-condensed table-responsive">
         <tr>
             <th>No</th>
             <th>Descripcion</th>
-            <th>Peso</th>
-            <th>Medida</th>
-            <th width="280px">Acción</th>
+            <th>Color</th>
+            <th>Talla</th>
+            <th>Estado</th>
+            <th></th>
+            <th width="220px">Acción</th>
         </tr>
     @foreach ($productos as $key => $producto)
     <tr>
         <td>{{ ++$i }}</td>
         <td>{{ $producto->descripcion }}</td>
-        <td>{{ $producto->peso }}</td>
-        <td>{{ $producto->medida }}</td>
-        <td>
-            <a class="btn btn-info" href="{{ route('producto.show',$producto->id_producto) }}">Ver</a>
-            <a class="btn btn-primary" href="{{ route('producto.edit',$producto->id_producto) }}">Editar</a>
-            {!! Form::open(['method' => 'DELETE','route' => ['producto.destroy', $producto->id_producto],'style'=>'display:inline']) !!}
+        <td>{{ $producto->descriColor }}</td>
+        <td>{{ $producto->descriTalla }}</td>
+        <td>{{ $producto->estado }}</td>
+        <td align="center"><img src="../storage/fotosProductos/<?=$producto->id.$producto->ruta;?>" width="50" height="50" class="img-rounded"></td>
+        <td align="center">
+            <a class="btn btn-info" href="{{ route('producto.show',$producto->id) }}">Ver</a>
+            <a class="btn btn-primary" href="{{ route('producto.edit',$producto->id) }}">Editar</a>
+            {!! Form::open(['method' => 'DELETE','route' => ['producto.destroy', $producto->id],'style'=>'display:inline']) !!}
             {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
             {!! Form::close() !!}
         </td>
@@ -43,6 +47,6 @@
     @endforeach
     </table>
 
-    {!! $productos->render() !!}
+
 </div>
 @endsection

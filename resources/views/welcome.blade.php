@@ -4,7 +4,7 @@
     <!-- ==================================== 
     Contenedor Slider 
     =======================================-->
-    <section id="slider" class="container">
+    <section id="slider">
         <ul class="slider-wrapper">
         <li class="current-slide">
             <img src="images/perro4.jpg" title="" alt="">
@@ -48,7 +48,6 @@
         <!-- Controles de Navegacion -->
         <ul id="control-buttons" class="control-buttons"></ul>
     </section>
-
 @endsection
 @section('scripts')
 <SCRIPT TYPE="text/javascript">

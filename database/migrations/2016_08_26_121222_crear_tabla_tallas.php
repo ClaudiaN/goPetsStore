@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrearTablaProductos extends Migration
+class CrearTablaTallas extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,13 @@ class CrearTablaProductos extends Migration
      */
     public function up()
     {
-        Schema::create('productos', function (Blueprint $table) {
-            $table->increments('id')->unique();
-            $table->string('descripcion',150);
-            $table->string('estado',8);
-            $table->rememberToken();
+         Schema::create('tallas', function (Blueprint $table) {
+            $table->increments('idTalla');
+            $table->string('descriTalla',50);
+            $table->string('medidas',30);
+            $table->string('creadoPor',50);
             $table->timestamps();
-        });
+          });
     }
 
     /**
@@ -28,6 +28,6 @@ class CrearTablaProductos extends Migration
      */
     public function down()
     {
-        Schema::drop('productos');
+       Schema::drop('tallas');
     }
 }

@@ -5,7 +5,7 @@ $('html, body').animate({scrollTop:0}, 300);
 function cargarformulario(arg){
 //funcion que carga todos los formularios del sistema
  
-        if(arg==1){ var url = "form_nuevo_usuario"; }
+    if(arg==1){ var url = "form_nuevo_usuario"; }
     if(arg==2){ var url = "form_cargar_datos_usuarios";  }
     if(arg==3){ var url = "form_enviar_correo";  }
 
@@ -20,23 +20,18 @@ function cargarformulario(arg){
 
 $(document).on("submit",".formarchivo",function(e){
 
-    
         e.preventDefault();
         var formu=$(this);
         var nombreform=$(this).attr("id");
-        var rs=false; //leccion 10
-        var seccion_sel=  $("#seccion_seleccionada").val();
-        if(nombreform=="f_subir_imagen" ){ var miurl="subir_imagen_usuario";  var divresul="notificacion_resul_fci";   }
-        if(nombreform=="f_cargar_datos_usuarios" ){ var miurl="cargar_datos_usuarios";  var divresul="notificacion_resul_fcdu"; rs=true; }
-        if(nombreform=="f_agregar_publicacion" ){ var miurl="agregar_publicacion_usuario";  var divresul="notificacion_resul_fap"; rs=true; }
-        if(nombreform=="f_agregar_proyectos" ){ var miurl="agregar_proyectos_usuario";  var divresul="notificacion_resul_fapr"; rs=true; }
-         if(nombreform=="f_enviar_correo" ){ var miurl="enviar_correo";  var divresul="contenido_principal";   }
+
+        if(nombreform=="f_subir_imagen" ){ var miurl="upProducto";  var divresul="notificacionImgArticulo";   }
+        if(nombreform=="f_enviar_correo" ){ var miurl="enviar_correo";  var divresul="contenido_principal";   }
 
         //información del formulario
         var formData = new FormData($("#"+nombreform+"")[0]);
 
         //hacemos la petición ajax   
-        $.ajax({
+          $.ajax({
             url: miurl,  
             type: 'POST',
      
@@ -49,26 +44,19 @@ $(document).on("submit",".formarchivo",function(e){
             processData: false,
             //mientras enviamos el archivo
             beforeSend: function(){
-              $("#"+divresul+"").html($("#cargador_empresa").html());                
+              $("#"+divresul+"").html('Subiendo');                
             },
             //una vez finalizado correctamente
             success: function(data){
-              $("#"+divresul+"").html(data);
-              $("#fotografia_usuario").attr('src', $("#fotografia_usuario").attr('src') + '?' + Math.random() );  
-
-                 if(rs ){
-                         $('#'+nombreform+'').trigger("reset");
-                         mostrarseccion(seccion_sel);
-                        }             
+              $("#"+divresul+"").html(data);            
             },
             //si ha ocurrido un error
             error: function(data){
-               alert("ha ocurrido un error") ;
+               alert("Ha ocurrido un error") ;
                 
             }
         });
-
-irarriba();
+    irarriba();
 
 });
 
